@@ -57,19 +57,16 @@ const PostDetail = () => {
     try {
       const res = await axios.post(
         "https://mern-blog-2gmm.vercel.app/api/v1/comment/create",
-       { body: JSON.stringify({
-        comment: comment,
-        author: user.username,
-        postId: postId,
-        userId: user._id,
-        })},
+        {
+          comment: comment,
+          author: user.username,
+          postId: postId,
+          userId: user._id,
+        },
         { withCredentials: true }
       );
-      if(res.data.success){
-         setComment("")
-      }
-        
-      ;
+
+      window.location.reload(true);
     } catch (error) {}
   };
   return (
