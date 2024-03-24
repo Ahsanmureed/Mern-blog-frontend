@@ -86,8 +86,8 @@ const PostDetail = () => {
        </div>
      )}
    </div>
-   <div className=" flex justify-between items-center">
-     <h3 className=" mb-5 font-semibold">@{post.username}</h3>
+   <div className=" flex mb-5 justify-between items-center">
+     <h3 className="  font-semibold">@{post.username}</h3>
      <div className="flex gap-4">
      <p>{new Date(post.createdAt).toString().slice(0,15)}</p>
        <p>{new Date(post.createdAt).toString().slice(16,24)}</p>
