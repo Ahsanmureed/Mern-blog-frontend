@@ -66,7 +66,7 @@ const PostDetail = () => {
         { withCredentials: true }
       );
 
-      navigate("/post/"+postId)
+      window.location.reload(true);
     } catch (error) {}
   };
   return (
