@@ -10,7 +10,7 @@ import EditPost from './components/EditPost'
 import UserBlog from './components/UserBlog'
 import Profile from './components/Profile'
 import { useContext } from 'react'
-
+import ScrollToTop  from '../src/components/ScrollToTop'
 import { UserContext } from './context/UserContext'
 import Footer from './components/Footer'
 
@@ -19,11 +19,12 @@ const App = () => {
   
   return (
 <>
+<ScrollToTop />
 <NavBar/>
     <Routes>
     <Route path='/' element={<Home/>}/>
-      <Route path='/login' element={<Login/>}/>
-      <Route path='/profile/:id' element={<Profile/>}/>
+      <Route path='/login' element={!user?<Login/>:<Profile/>}/>
+      <Route path='/profile/:id' element={user?<Login/>:<Profile/>}/>
       <Route path='/register' element={<Register/>}/>
       <Route path='/post/:id' element={<PostDetail/>}/>
       <Route path='/create' element={<CreatePost/>}/>
