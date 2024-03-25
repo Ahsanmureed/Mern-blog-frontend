@@ -25,11 +25,11 @@ const App = () => {
     <Route path='/' element={<Home/>}/>
       <Route path='/login' element={!user?<Login/>:<Profile/>}/>
       <Route path='/profile/:id' element={user?<Login/>:<Profile/>}/>
-      <Route path='/register' element={<Register/>}/>
+      <Route path='/register' element={!user?<Register/>:<Profile/>}/>
       <Route path='/post/:id' element={<PostDetail/>}/>
-      <Route path='/create' element={<CreatePost/>}/>
-      <Route path='/edit/:id' element={<EditPost/>}/>
-      <Route path='/my-blog/:id' element={<UserBlog/>}/>
+      <Route path='/create' element={user?<CreatePost/>:<Login/>}/>
+      <Route path='/edit/:id' element={user?<EditPost/>:<Login/>}/>
+      <Route path='/my-blog/:id' element={user?<UserBlog/>:<Login/>}/>
       
     </Routes>
     <Footer/>
