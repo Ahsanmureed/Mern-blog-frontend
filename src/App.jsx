@@ -23,13 +23,13 @@ const App = () => {
 <NavBar/>
     <Routes>
     <Route path='/' element={<Home/>}/>
-      <Route path='/login' element={!user?<Login/>:<Profile/>}/>
-      <Route path='/profile/:id' element={user?<Profile/>:<Login/>}/>
-      <Route path='/register' element={!user?<Register/>:<Profile/>}/>
+      <Route path='/login' element={user?<Profile/>:<Login/>}/>
+      <Route path='/profile/:id' element={!user?<Login/>:<Profile/>}/>
+      <Route path='/register' element={user?<Profile/>:<Register/>}/>
       <Route path='/post/:id' element={<PostDetail/>}/>
-      <Route path='/create' element={user?<CreatePost/>:<Login/>}/>
-      <Route path='/edit/:id' element={user?<EditPost/>:<Login/>}/>
-      <Route path='/my-blog/:id' element={user?<UserBlog/>:<Login/>}/>
+      <Route path='/create' element={!user?<Login/>:<CreatePost/>}/>
+      <Route path='/edit/:id' element={!user?<Login/>:<EditPost/>}/>
+      <Route path='/my-blog/:id' element={!user?<Login/>:<UserBlog/>}/>
       
     </Routes>
     <Footer/>
