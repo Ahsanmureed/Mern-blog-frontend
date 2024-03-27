@@ -41,19 +41,7 @@ const CreatePost = () => {
           categories:cats
         }
         
-       const hadnleImage = async(e)=>{
-           const file  = e.target.files[0];
-           let formData  = new FormData();
-           formData.append("image",file);
-           try {
-            const {data}= await axios.post("https://mern-blog-backend-chi-gray.vercel.app/api/v1/blog/upload-image", {
-              withCredentials: true,
-              headers: { "Content-Type": "multipart/form-data" },
-            },formData)
-           } catch (error) {
-            
-           }
-    }
+
         
         try{
           const res=await axios.post("https://mern-blog-backend-chi-gray.vercel.app/api/v1/blog/create",post,{withCredentials:true})
@@ -74,7 +62,19 @@ const CreatePost = () => {
     }
 
   
-
+    const hadnleImage = async(e)=>{
+      const file  = e.target.files[0];
+      let formData  = new FormData();
+      formData.append("image",file);
+      try {
+       const {data}= await axios.post("https://mern-blog-backend-chi-gray.vercel.app/api/v1/blog/upload-image", {
+         withCredentials: true,
+         headers: { "Content-Type": "multipart/form-data" },
+       },formData)
+      } catch (error) {
+       
+      }
+}
 
        
 
