@@ -13,7 +13,7 @@ const UserBlog = () => {
     const fetchPosts = async()=>{
         setLoader(true)
         try {
-            const res = await axios.get("https://mern-blog-2gmm.vercel.app/api/v1/blog/user/"+user._id)
+            const res = await axios.get("https://mern-blog-backend-chi-gray.vercel.app/api/v1/blog/user/"+user._id)
             setPost(res.data.userBlogs)
             if(res.data.userBlogs.length===0){
                 setNoResults(true)

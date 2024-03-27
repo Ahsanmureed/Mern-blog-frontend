@@ -8,7 +8,7 @@ useEffect(()=>{
 },[])
 const getUser = async ()=>{
   try {
-    const res = await axios.get("https://mern-blog-2gmm.vercel.app/api/v1/auth/refetch",{withCredentials:true})
+    const res = await axios.get("https://mern-blog-backend-chi-gray.vercel.app/api/v1/auth/refetch",{withCredentials:true})
     
     setUser(res.data)
   } catch (error) {

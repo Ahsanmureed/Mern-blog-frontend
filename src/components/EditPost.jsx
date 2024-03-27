@@ -38,7 +38,7 @@ const EditPost = () => {
 
        
         try{
-          const res=await axios.get("https://mern-blog-2gmm.vercel.app/api/v1/blog/"+postId,{withCredentials:true})
+          const res=await axios.get("https://mern-blog-backend-chi-gray.vercel.app/api/v1/blog/"+postId,{withCredentials:true})
           setTitle(res.data.post.title)
           setPhoto(res.data.post.photo)
           setDescription(res.data.post.description)

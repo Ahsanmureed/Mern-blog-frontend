@@ -18,7 +18,7 @@ const Home = () => {
   const fetchPost =async()=>{
     
     try {
-      const res =await axios.get("https://mern-blog-2gmm.vercel.app/api/v1/blog/"+search)
+      const res =await axios.get("https://mern-blog-backend-chi-gray.vercel.app/api/v1/blog/"+search)
       setBlogs(res.data.posts);
       if(res.data.posts.length===0){
         setNoResults(true)

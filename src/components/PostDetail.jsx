@@ -13,7 +13,7 @@ const PostDetail = () => {
   const postId = useParams().id;
   const handleDelete = async () => {
     try {
-      await axios.delete("https://mern-blog-2gmm.vercel.app/api/v1/blog/" + postId,{withCredentials:true});
+      await axios.delete("https://mern-blog-backend-chi-gray.vercel.app/api/v1/blog/" + postId,{withCredentials:true});
       navigate("/");
     } catch (error) {}
   };
@@ -26,7 +26,7 @@ const PostDetail = () => {
     setLoader(true)
     try {
       const res = await axios.get(
-        "https://mern-blog-2gmm.vercel.app/api/v1/blog/" + postId,
+        "https://mern-blog-backend-chi-gray.vercel.app/api/v1/blog/" + postId,
         { withCredentials: true }
       );
       setLoader(false)
@@ -43,7 +43,7 @@ const PostDetail = () => {
     try {
      
       const res = await axios.get(
-        "https://mern-blog-2gmm.vercel.app/api/v1/comment/post/" + postId
+        "https://mern-blog-backend-chi-gray.vercel.app/api/v1/comment/post/" + postId
       );
      
       setComments(res.data.comments);
@@ -56,7 +56,7 @@ const PostDetail = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "https://mern-blog-2gmm.vercel.app/api/v1/comment/create",
+        "https://mern-blog-backend-chi-gray.vercel.app/api/v1/comment/create",
         {
           comment: comment,
           author: user.username,

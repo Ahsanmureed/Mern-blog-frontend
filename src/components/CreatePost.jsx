@@ -46,7 +46,7 @@ const CreatePost = () => {
            let formData  = new FormData();
            formData.append("image",file);
            try {
-            const {data}= await axios.post("https://mern-blog-2gmm.vercel.app/api/v1/blog/upload-image", {
+            const {data}= await axios.post("https://mern-blog-backend-chi-gray.vercel.app/api/v1/blog/upload-image", {
               withCredentials: true,
               headers: { "Content-Type": "multipart/form-data" },
             },formData)
@@ -56,7 +56,7 @@ const CreatePost = () => {
     }
         
         try{
-          const res=await axios.post("https://mern-blog-2gmm.vercel.app/api/v1/blog/create",post,{withCredentials:true})
+          const res=await axios.post("https://mern-blog-backend-chi-gray.vercel.app/api/v1/blog/create",post,{withCredentials:true})
           toast('🦄 Blog Created successFully', {
             position: "top-center",
             autoClose: 2000,

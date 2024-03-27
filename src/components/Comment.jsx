@@ -4,7 +4,7 @@ import { MdDelete } from "react-icons/md";
 import {UserContext} from "../context/UserContext"
 const Comment = ({ c }) => {
   const handleDelete= async()=>{
-    await axios.delete("https://mern-blog-2gmm.vercel.app/api/v1/comment/"+c._id,{withCredentials:true})
+    await axios.delete("https://mern-blog-backend-chi-gray.vercel.app/api/v1/comment/"+c._id,{withCredentials:true})
     window.location.reload(true);
   }
   const {user}= useContext(UserContext)
