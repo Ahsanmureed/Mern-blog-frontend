@@ -35,14 +35,22 @@ const CreatePost = () => {
         e.preventDefault()
         const post={
           title:title,
-          photo:photo,
           description,
           username:user.username,
           userId:user._id,
           categories:cats
         }
         
-    
+       const hadnleImage = async(e)=>{
+           const file  = e.target.files[0];
+           let formData  = new FormData();
+           formData.append("image",file);
+           try {
+            const {data}= await axios.post("https://mern-blog-2gmm.vercel.app/api/v1/blog/upload-image",formData)
+           } catch (error) {
+            
+           }
+    }
         
         try{
           const res=await axios.post("https://mern-blog-2gmm.vercel.app/api/v1/blog/create",post,{withCredentials:true})
@@ -62,7 +70,7 @@ const CreatePost = () => {
             })}
     }
 
-   
+  
 
 
        
@@ -76,7 +84,7 @@ const CreatePost = () => {
         <h1 className='font-bold md:text-2xl text-xl text-center '>Create a post</h1>
         <form className='w-full flex flex-col space-y-6 md:space-y-8 mt-2'>
           <input onChange={(e)=>setTitle(e.target.value)} type="text" placeholder=' Enter Post title' className=' rounded-md  border-2 px-4 py-2 outline-none'/>
-          <input onChange={(e)=>setPhoto(e.target.value)} type="text" placeholder=' Enter Post Url' className=' rounded-md  border-2 px-4 py-2 outline-none'/>
+          <input onChange={hadnleImage} type="file" placeholder=' Enter Post Url' className=' rounded-md  border-2 px-4 py-2 outline-none'/>
           <div className='flex flex-col'>
             <div className='flex items-center space-x-4 md:space-x-6'>
                 <input value={cat} onChange={(e)=>setCat(e.target.value)} className='rounded-md border-2 px-4 py-2 outline-none' placeholder='Enter post category' type="text"/>
