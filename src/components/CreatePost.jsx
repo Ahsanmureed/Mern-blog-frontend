@@ -46,7 +46,10 @@ const CreatePost = () => {
            let formData  = new FormData();
            formData.append("image",file);
            try {
-            const {data}= await axios.post("https://mern-blog-2gmm.vercel.app/api/v1/blog/upload-image",formData)
+            const {data}= await axios.post("https://mern-blog-2gmm.vercel.app/api/v1/blog/upload-image", {
+              withCredentials: true,
+              headers: { "Content-Type": "multipart/form-data" },
+            },formData)
            } catch (error) {
             
            }
