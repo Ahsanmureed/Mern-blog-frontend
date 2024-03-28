@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { UserContext } from '../context/UserContext'
 import axios from 'axios'
-import {useCookies} from "react-cookie"
+import Cookie from "js-cookie"
 const Menu = () => {
   const {user} =useContext(UserContext)
   const {setUser} =useContext(UserContext)
@@ -10,6 +10,7 @@ const Menu = () => {
   const handleLogout=async()=>{
     try {
       const res= await axios.post("https://mern-blog-backend-chi-gray.vercel.app/api/v1/auth/logout",{withCredentials:true})
+      Cookie.remove("token")
       setUser(null)
     } catch (error) {
       console.log(error);
