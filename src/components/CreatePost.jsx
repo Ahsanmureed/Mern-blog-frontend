@@ -49,7 +49,7 @@ const CreatePost = () => {
           // console.log(data)
           //img upload
           try{
-            const imgUpload=await axios.post("https://mern-blog-backend-chi-gray.vercel.app/api/upload",data)
+            const imgUpload=await axios.post("https://mern-blog-backend-chi-gray.vercel.app/v1/api/upload",data)
             // console.log(imgUpload.data)
           }
           catch(err){
