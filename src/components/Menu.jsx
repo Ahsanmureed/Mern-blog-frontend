@@ -6,7 +6,7 @@ import Cookie from "js-cookie"
 const Menu = () => {
   const {user} =useContext(UserContext)
   const {setUser} =useContext(UserContext)
-  const [cookies, setCookie, removeCookie] = useCookies([]);
+
   const handleLogout=async()=>{
     try {
       const res= await axios.post("https://mern-blog-backend-chi-gray.vercel.app/api/v1/auth/logout",{withCredentials:true})
