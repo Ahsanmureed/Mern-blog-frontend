@@ -8,7 +8,7 @@ const Menu = () => {
   const handleLogout=async()=>{
     try {
        await axios.post("https://mern-blog-backend-chi-gray.vercel.app/api/v1/auth/logout",{withCredentials:true})
-      setUser('')
+      setUser(null)
     } catch (error) {
       console.log(error);
     }
