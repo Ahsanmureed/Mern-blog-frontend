@@ -9,7 +9,7 @@ const Menu = () => {
   const [cookies, setCookie, removeCookie] = useCookies([]);
   const handleLogout=async()=>{
     try {
-      const res= await axios.get("https://mern-blog-backend-chi-gray.vercel.app/api/v1/auth/logout",{withCredentials:true})
+      const res= await axios.post("https://mern-blog-backend-chi-gray.vercel.app/api/v1/auth/logout",{withCredentials:true})
       setUser(null)
     } catch (error) {
       console.log(error);
