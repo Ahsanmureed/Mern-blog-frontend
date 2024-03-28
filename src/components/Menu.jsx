@@ -21,6 +21,7 @@ const Menu = () => {
         {user && <h3 className='text-xl text-white hover:text-gray-300 font-medium '><Link to={`/profile/${user._id}`}>Profile</Link></h3>}
         {user && <h3 className='text-xl text-white hover:text-gray-300 font-medium '><Link to={"/my-blog/"+user._id}>My Blogs</Link></h3>}
         {user && <h3 onClick={handleLogout} className='text-xl text-white hover:text-gray-300 font-medium '><Link to={"/login"}>Logout</Link></h3>}
+        <h3 onClick={handleLogout} className='text-xl text-white hover:text-gray-300 font-medium '></h3>
     </div>
   )
 }
