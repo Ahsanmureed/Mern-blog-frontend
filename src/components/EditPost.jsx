@@ -64,7 +64,7 @@ const EditPost = () => {
 
       
       try{
-        const res=await axios.put("https://mern-blog-2gmm.vercel.app/api/v1/blog/"+postId,post,{withCredentials:true})
+        const res=await axios.put("https://mern-blog-backend-chi-gray.vercel.app/api/v1/blog/"+postId,post,{withCredentials:true})
         toast('🦄 Updated successFully', {
           position: "top-center",
           autoClose: 2500,
