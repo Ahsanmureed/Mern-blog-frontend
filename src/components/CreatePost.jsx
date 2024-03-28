@@ -11,7 +11,7 @@ const CreatePost = () => {
    const {user}= useContext(UserContext)
     const [title,setTitle]=useState("")
     const [description,setDescription]=useState("")
-    const [photo,setPhoto]=useState('')
+    const [file,setFile]=useState(null)
     
     const [cat,setCat]=useState("")
     const [cats,setCats]=useState([])
