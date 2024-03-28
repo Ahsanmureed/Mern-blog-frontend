@@ -20,8 +20,7 @@ const Login = () => {
     try {
       const res = await axios.post("https://mern-blog-backend-chi-gray.vercel.app/api/v1/auth/login",{
         email:inputs.email,
-        password:inputs.password,
-        headers: { 'Content-Type': 'application/json' }
+        password:inputs.password
         
       },{withCredentials:true})
       toast('🦄 Login successFully', {
