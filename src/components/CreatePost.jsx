@@ -69,7 +69,7 @@ const CreatePost = () => {
       try {
        const {data}= await axios.post("https://mern-blog-backend-chi-gray.vercel.app/api/v1/blog/image-upload", {
          withCredentials: true,
-         headers: { "Content-Type": "multipart/form-data" },
+        
        },formData)
       } catch (error) {
        
