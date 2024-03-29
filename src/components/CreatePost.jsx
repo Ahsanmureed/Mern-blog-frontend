@@ -71,7 +71,7 @@ const CreatePost = () => {
       formData.append("upload_preset",upload_preset)
       try {
        const {data}= await axios.post("https://api.cloudinary.com/v1_1/dib6srjdt/image/upload",formData)
-       setPhoto(data.secure_url)
+       setPhoto(data.secure_url,data.original_filename)
       } catch (error) {
        
       }
