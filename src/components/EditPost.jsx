@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const EditPost = () => {
   const postId =useParams().id
-   
+  const upload_preset="ahsanch";
     const [title,setTitle]=useState("")
     const [description,setDescription]=useState("")
     const [photo,setPhoto]=useState("")
