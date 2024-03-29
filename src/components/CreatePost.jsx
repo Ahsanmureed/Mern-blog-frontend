@@ -80,7 +80,7 @@ const CreatePost = () => {
     const hadnleImage = async(e)=>{
       const file  = e.target.files[0];
       let formData  = new FormData();
-      formData.append("image",file);
+      formData.append("file",file);
       formData.append("cloud_name","dib6srjdt")
       formData.append("upload_preset",upload_preset)
       try {
