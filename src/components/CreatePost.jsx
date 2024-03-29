@@ -7,7 +7,7 @@ import {  useNavigate } from 'react-router-dom'
 import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const CreatePost = () => {
-  const upload_preset=ahsanch
+  const upload_preset="ahsanch";
    const {user}= useContext(UserContext)
     const [title,setTitle]=useState("")
     const [description,setDescription]=useState("")
