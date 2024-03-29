@@ -37,7 +37,7 @@ const Home = () => {
     <div className='  pt-16'>
       {loader?<div className=' h-[70vh] flex justify-center items-center'><Loader/></div>:!noResults?blogs.map((blog)=>(
         <Link key={blog._id} to={`/post/${blog._id}`}><Post key={blog._id} blogs={blog}/></Link>
-      )):<h1 className=' mt-20 text-3xl font-bold text-center'>No posts Avaliable</h1>}
+      )):<h1 className=' mt-20 text-3xl font-bold text-center'>No Posts Avaliable</h1>}
     </div>
   )
 }

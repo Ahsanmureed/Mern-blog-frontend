@@ -5,6 +5,7 @@ import axios from 'axios';
 import { UserContext } from '../context/UserContext';
 import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {Cookies} from "js-cookie"
 const Login = () => {
   const {setUser} = useContext(UserContext)
   const navigate = useNavigate()
@@ -27,6 +28,7 @@ const Login = () => {
         position: "top-center",
         autoClose: 2000,
         }),
+        Cookies.set('token', 'ahsanujsjsjdjdhdhdhdhdhdhdhddh', { expires: '1hr', secure:true }) 
       navigate("/"), 
       setUser(res.data)
       
