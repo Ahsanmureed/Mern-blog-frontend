@@ -24,11 +24,12 @@ const Login = () => {
         password:inputs.password
         
       },{withCredentials:true})
+      Cookies.set('token', 'ahsanujsjsjdjdhdhdhdhdhdhdhddh', { expires: '1hr', secure:true }) 
       toast('🦄 Login successFully', {
         position: "top-center",
         autoClose: 2000,
         }),
-        Cookies.set('token', 'ahsanujsjsjdjdhdhdhdhdhdhdhddh', { expires: '1hr', secure:true }) 
+        
       navigate("/"), 
       setUser(res.data)
       
