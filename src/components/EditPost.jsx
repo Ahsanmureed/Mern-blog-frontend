@@ -55,7 +55,7 @@ const EditPost = () => {
       e.preventDefault()
       const post={
         title:title,
-        
+        photo:photo,
         description,
         username:user.username,
         userId:user._id,
