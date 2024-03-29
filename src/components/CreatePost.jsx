@@ -7,7 +7,7 @@ import {  useNavigate } from 'react-router-dom'
 import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const CreatePost = () => {
-  
+  const upload_preset=ahsanch
    const {user}= useContext(UserContext)
     const [title,setTitle]=useState("")
     const [description,setDescription]=useState("")
@@ -81,6 +81,7 @@ const CreatePost = () => {
       const file  = e.target.files[0];
       let formData  = new FormData();
       formData.append("image",file);
+      formData.append("upload_preset",upload_preset)
       try {
        const {data}= await axios.post("https://api.cloudinary.com/v1_1/dib6srjdt/image/upload",formData)
       } catch (error) {
