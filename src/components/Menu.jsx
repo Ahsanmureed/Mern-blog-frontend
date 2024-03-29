@@ -2,15 +2,17 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { UserContext } from '../context/UserContext'
 import axios from 'axios'
-import {Cookies} from "js-cookie"
+import {useNavigate} from "react-router-dom"
 const Menu = () => {
+  const navigate= useNavigate();
   const {user} =useContext(UserContext)
   const {setUser} =useContext(UserContext)
 
   const handleLogout=async()=>{
     try {
-      const res = await axios.post('https://mern-blog-backend-chi-gray.vercel.app/api/v1/auth/logout').then(()=>Cookies.remove("token"))
-      
+      const res = await axios.post('https://mern-blog-backend-chi-gray.vercel.app/api/v1/auth/logout');
+         setUser(null);
+         navigate("/login")
     }
        catch (error) {
       console.log(error);
