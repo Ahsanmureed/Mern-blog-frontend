@@ -11,7 +11,7 @@ const CreatePost = () => {
    const {user}= useContext(UserContext)
     const [title,setTitle]=useState("")
     const [description,setDescription]=useState("")
-    const [file,setFile]=useState(null)
+    const [photo,setPhoto]=useState(null)
     
     const [cat,setCat]=useState("")
     const [cats,setCats]=useState([])
@@ -35,27 +35,13 @@ const CreatePost = () => {
         e.preventDefault()
         const post={
           title:title,
+          photo:photo,
           description,
           username:user.username,
           userId:user._id,
           categories:cats
         }
-        // if(file){
-        //   const data=new FormData()
-        //   const filename=Date.now()+file.name
-        //   data.append("img",filename)
-        //   data.append("file",file)
-        //   post.photo=filename
-        //   // console.log(data)
-        //   //img upload
-        //   try{
-        //     const imgUpload=await axios.post("https://mern-blog-backend-chi-gray.vercel.app/api/upload",data)
-        //     // console.log(imgUpload.data)
-        //   }
-        //   catch(err){
-        //     console.log(err)
-        //   }
-        // }     
+     
    
         
         try{
@@ -85,6 +71,7 @@ const CreatePost = () => {
       formData.append("upload_preset",upload_preset)
       try {
        const {data}= await axios.post("https://api.cloudinary.com/v1_1/dib6srjdt/image/upload",formData)
+       setPhoto(data.secure_url)
       } catch (error) {
        
       }

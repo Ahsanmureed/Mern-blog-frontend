@@ -95,7 +95,7 @@ const PostDetail = () => {
    </div>
    <img
      className=" mb-4 w-[100vw] md:w-[80vw] md:h-[60vw]"
-     src={"http://localhost:4000/images/"+post.photo}
+     src={post.photo}
      alt=""
    />
    <p>{post.description}</p>
