@@ -82,7 +82,7 @@ const CreatePost = () => {
       let formData  = new FormData();
       formData.append("image",file);
       try {
-       const {data}= await axios.post("https://mern-blog-backend-chi-gray.vercel.app/api/v1/blog/image-upload",formData)
+       const {data}= await axios.post("https://api.cloudinary.com/v1_1/dib6srjdt/image/upload",formData)
       } catch (error) {
        
       }
