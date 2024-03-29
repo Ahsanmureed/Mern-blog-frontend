@@ -90,7 +90,7 @@ useEffect(()=>{
         <h1 className='font-bold md:text-2xl text-xl text-center '>Create a post</h1>
         <form className='w-full flex flex-col space-y-6 md:space-y-6 mt-2'>
           <input onChange={(e)=>setTitle(e.target.value)} value={title} type="text" placeholder='Enter post title' className=' rounded-md border-2 px-4 py-2 outline-none'/>
-          <input onChange={(e)=>setPhoto(e.target.value)} value={photo} type="file" placeholder=' Enter Post Url' className=' rounded-md  border-2 px-4 py-2 outline-none'/>
+          <input onChange={(e)=>setPhoto(e.target.files([0]))} value={photo} type="file" placeholder=' Enter Post Url' className=' rounded-md  border-2 px-4 py-2 outline-none'/>
           <div className='flex flex-col'>
             <div className='flex items-center space-x-4 md:space-x-6'>
                 <input value={cat} onChange={(e)=>setCat(e.target.value)} className='rounded-md border-2 px-4 py-2 outline-none' placeholder='Enter post category' type="text"/>
