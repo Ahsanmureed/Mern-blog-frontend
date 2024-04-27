@@ -1,9 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react'
 import axios from "axios"
+import { useNavigate } from 'react-router-dom'
 import { UserContext } from '../context/UserContext'
+import {  toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Profile = () => {
+  const navigate = useNavigate();
   const [username,setUsername]= useState("")
   const [email,setEmail]= useState("")
+  
   const {user}= useContext(UserContext)
   const fetchUser = async ()=>{
    try {
@@ -15,8 +20,19 @@ const Profile = () => {
    }
   }
   const handleSunmit = async(e)=>{
+   try {
     e.preventDefault();
     const res = await axios.put(`${import.meta.env.VITE_URL}/api/v1/user/`+user._id,{username,email},{withCredentials:true})
+    toast('🦄 Profile Updated Successfully', {
+      position: "top-center",
+      autoClose: 2000,
+      })
+      navigate(`/profile/${user._id}`)
+    
+   } catch (error) {
+    console.log(error);
+   }
+    
   }
   useEffect(()=>{
 fetchUser()
