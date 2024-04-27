@@ -38,7 +38,7 @@ const EditPost = () => {
 
        
         try{
-          const res=await axios.get("https://mern-blog-backend-chi-gray.vercel.app/api/v1/blog/"+postId,{withCredentials:true})
+          const res=await axios.get(`${import.meta.env.VITE_URL}/api/v1/blog/`+postId,{withCredentials:true})
           setTitle(res.data.post.title)
           setPhoto(res.data.post.photo)
           setDescription(res.data.post.description)
@@ -64,7 +64,7 @@ const EditPost = () => {
          
      
       try{
-        const res=await axios.put("https://mern-blog-backend-chi-gray.vercel.app/api/v1/blog/"+postId,post,{withCredentials:true})
+        const res=await axios.put(`${import.meta.env.VITE_URL}/api/v1/blog/`+postId,post,{withCredentials:true})
         toast('🦄 Updated successFully', {
           position: "top-center",
           autoClose: 2500,

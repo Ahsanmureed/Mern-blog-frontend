@@ -8,7 +8,7 @@ const Profile = () => {
   const {user}= useContext(UserContext)
   const fetchUser = async ()=>{
    try {
-    const res=await axios.get("https://mern-blog-backend-chi-gray.vercel.app/api/v1/user/"+user._id,{withCredentials:true})
+    const res=await axios.get(`${import.meta.env.VITE_URL}/api/v1/user/`+user._id,{withCredentials:true})
     setUsername(res.data.user.username)
     setEmail(res.data.user.email)
     setPassword(res.data.user.password)

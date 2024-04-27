@@ -17,7 +17,7 @@ const Register = () => {
   const handleSubmit =async(e)=>{
     e.preventDefault();
     try {
-      const res= await axios.post("https://mern-blog-backend-chi-gray.vercel.app/api/v1/auth/register",{
+      const res= await axios.post(`${import.meta.env.VITE_URL}/api/v1/auth/register`,{
         username :inputs.username,
         email:inputs.email,
         password:inputs.password,
