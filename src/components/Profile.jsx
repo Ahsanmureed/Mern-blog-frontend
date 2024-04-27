@@ -38,14 +38,19 @@ const Profile = () => {
 fetchUser()
   },[user])
   return (
-    <div className=' mt-48 flex  items-center justify-center '>
-      <form className=' flex flex-col gap-1 w-[80vw] md:w-[28vw]'>
-        <label htmlFor="username">Username:</label>
-        <input onChange={(e)=>setUsername(e.target.value)} value={username} className=' border-2 rounded-md outline-none' type="text"  />
-        <label htmlFor="email">Email:</label>
-        <input onChange={(e)=>setEmail(e.target.value)} value={email} className=' border-2 rounded-md outline-none' type="text" />
-        <button onClick={handleSunmit} type='submit' className=' mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full'>Update</button>
-      </form>
+    <div className='mt-40 '>
+    <h1 className=' text-center  text-4xl font-semibold'>Update Your Profile</h1>
+    <div className='flex mt-5  items-center justify-center' >
+
+      
+<form className=' flex flex-col gap-1 w-[80vw] md:w-[28vw]'>
+  <label htmlFor="username">Username:</label>
+  <input onChange={(e)=>setUsername(e.target.value)} value={username} className=' border-2 rounded-md outline-none' type="text"  />
+  <label htmlFor="email">Email:</label>
+  <input onChange={(e)=>setEmail(e.target.value)} value={email} className=' border-2 rounded-md outline-none' type="text" />
+  <button onClick={handleSunmit} type='submit' className=' mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full'>Update</button>
+</form>
+</div>
     </div>
   )
 }
