@@ -16,7 +16,7 @@ const Profile = () => {
   }
   const handleSunmit = async(e)=>{
     e.preventDefault();
-    const res = await axios.put("https://mern-blog-backend-chi-gray.vercel.app/api/v1/user/"+user._id,{username,email},{withCredentials:true})
+    const res = await axios.put(`${import.meta.env.VITE_URL}/api/v1/user/`+user._id,{username,email},{withCredentials:true})
   }
   useEffect(()=>{
 fetchUser()
