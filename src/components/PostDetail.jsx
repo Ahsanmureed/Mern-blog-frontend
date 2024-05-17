@@ -75,7 +75,7 @@ const PostDetail = () => {
         setComment("");  
     } catch (error) {}
   };
-  console.log(comment);
+  
   return (
    <div>
  {loader?<div className="h-[80vh] flex justify-center items-center w-full"><Loader/></div>: <div className=" pt-28 px-[6px] md:px-32  ">
