@@ -64,11 +64,18 @@ const PostDetail = () => {
           userId: user._id,
         },
         { withCredentials: true }
-      );
 
-      window.location.reload(true);
+       
+      );
+      if(res.data.success){
+           postComment();
+          
+      }
+    
+        setComment("");  
     } catch (error) {}
   };
+  console.log(comment);
   return (
    <div>
  {loader?<div className="h-[80vh] flex justify-center items-center w-full"><Loader/></div>: <div className=" pt-28 px-[6px] md:px-32  ">
@@ -115,7 +122,7 @@ const PostDetail = () => {
    ))}
    <div className="flex items-center gap-2 md:justify-between mt-5 mb-9">
      <input
-       onChange={(e) => setComment(e.target.value)}
+       onChange={(e) => setComment(e.target.value)} value={comment}
        className=" w-72 md:w-[80vw] outline-none border-2 px-1 py-1 rounded-md"
        type="text"
        placeholder="Write a comment"
