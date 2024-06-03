@@ -63,7 +63,7 @@ const PostDetail = () => {
         `${import.meta.env.VITE_URL}/api/v1/comment/create`,
         {
           comment: comment,
-          author: user._id,
+          author: user?._id,
           postId: postId,
           
         },
@@ -83,6 +83,7 @@ const PostDetail = () => {
         setComment("");  
     } catch (error) {
 setLoading(false)
+console.log(error);
       toast.error(error?.response?.data?.message, {
         position: "top-center",
         autoClose: 2000,
