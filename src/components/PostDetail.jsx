@@ -6,6 +6,8 @@ import { MdDelete } from "react-icons/md";
 import { UserContext } from "../context/UserContext";
 import { Link } from "react-router-dom";
 import Comment from "./Comment";
+import {  toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Loader from "./Loader";
 const PostDetail = () => {
   const [loader,setLoader]=useState(false)
@@ -69,11 +71,20 @@ const PostDetail = () => {
       );
       if(res.data.success){
            postComment();
-          
+            toast.success(res.data.message, {
+              position: "top-center",
+              autoClose: 2000,
+              })
       }
     
         setComment("");  
-    } catch (error) {}
+    } catch (error) {
+
+      toast.error(error.response.data.message, {
+        position: "top-center",
+        autoClose: 2000,
+        })
+    }
   };
   
   return (
