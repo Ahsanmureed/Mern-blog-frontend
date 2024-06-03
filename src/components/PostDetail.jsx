@@ -21,6 +21,7 @@ const PostDetail = () => {
   };
   const { user } = useContext(UserContext);
   const [post, setPost] = useState({});
+  const [loading,setLoading]= useState(false)
   const [comments, setComments] = useState([]);
   const [comment, setComment] = useState("");
 
@@ -57,6 +58,7 @@ const PostDetail = () => {
   const createComment = async (e) => {
     e.preventDefault();
     try {
+      setLoading(true)
       const res = await axios.post(
         `${import.meta.env.VITE_URL}/api/v1/comment/create`,
         {
@@ -69,6 +71,7 @@ const PostDetail = () => {
 
        
       );
+      setLoading(false)
       if(res.data.success){
            postComment();
             toast.success(res.data.message, {
@@ -79,7 +82,7 @@ const PostDetail = () => {
     
         setComment("");  
     } catch (error) {
-
+setLoading(false)
       toast.error(error.response.data.message, {
         position: "top-center",
         autoClose: 2000,
@@ -139,11 +142,12 @@ const PostDetail = () => {
        placeholder="Write a comment"
      />
      <button
+     disabled={loading}
        onClick={createComment}
        type="submit"
        className=" bg-black text-white font-bold py-2 px-5 rounded-full"
      >
-       Submit
+       {loading ? 'Submitting..' : 'Submit'}
      </button>
    </div>
  </div>}
