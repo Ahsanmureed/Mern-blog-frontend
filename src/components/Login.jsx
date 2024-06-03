@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const Login = () => {
   const {setUser} = useContext(UserContext)
   const navigate = useNavigate()
+  const [loading,setLoading]=useState(false)
   const [inputs,setInputs]= useState({
     email:"",
     password:""
@@ -17,14 +18,17 @@ const Login = () => {
      setInputs({...inputs,[e.target.name]:e.target.value})
    }
    const handleSubmit =async(e)=>{
+
     e.preventDefault();
+    
     try {
+      setLoading(true)
       const res = await axios.post(`${import.meta.env.VITE_URL}/api/v1/auth/login`,{
         email:inputs.email,
         password:inputs.password
         
       },{withCredentials:true})
-     
+     setLoading(false)
       toast('🦄 Login successFully', {
         position: "top-center",
         autoClose: 2000,
@@ -34,7 +38,9 @@ const Login = () => {
       setUser(res.data)
       
     } catch (error) {
-      toast('🦄 Invalid Credentials', {
+      setLoading(false)
+
+      toast.error(error.response.data.message, {
         position: "top-center",
         autoClose: 2500,
         })
@@ -51,7 +57,7 @@ const Login = () => {
         <input onChange={handleChange} name='email' required className='border-2 py-[2.5px] outline-none mb-2 rounded-md' type="email" />
         <label className='  font-medium' htmlFor="password">Password:</label>
         <input  onChange={handleChange} name='password'  type='password' required className='border-2 rounded-md outline-none py-[2.5px] mb-2'  />
-        <button className='mt-3 mb-2  bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full' type="submit">Login</button>
+        <button disabled={loading} className={`mt-3 mb-2  ${loading ? ' bg-blue-300' : 'bg-blue-500 hover:bg-blue-700'} text-white font-bold py-2 px-4 rounded-full`} type="submit">{loading ? 'Logging in...' : 'Login'}</button>
         <h1 className=' text-center'>Don't have an account? <button onClick={()=>navigate("/register")} className='  text-blue-500'>Create an account</button></h1>
       
       </form>

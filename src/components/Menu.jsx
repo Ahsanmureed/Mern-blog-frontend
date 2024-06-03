@@ -10,7 +10,7 @@ const Menu = () => {
 
   const handleLogout=async()=>{
     try {
-      const res = await axios.post(`${import.meta.env.VITE_URL}/api/v1/auth/logout`);
+      const res = await axios.post(`${import.meta.env.VITE_URL}/api/v1/auth/logout`,{},{});
          setUser(null);
          navigate("/login")
     }
