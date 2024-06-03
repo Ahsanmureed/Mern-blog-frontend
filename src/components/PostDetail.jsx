@@ -83,9 +83,10 @@ const PostDetail = () => {
         setComment("");  
     } catch (error) {
 setLoading(false)
-      toast.error(error.response.data.message, {
+      toast.error(error?.response?.data?.message, {
         position: "top-center",
         autoClose: 2000,
+  
         })
     }
   };
