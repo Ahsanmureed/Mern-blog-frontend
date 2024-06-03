@@ -18,7 +18,7 @@ const path=useLocation().pathname
   }
  
   return (
-    <nav className='py-5 px-[3px] md:px-7 flex items-center justify-between shadow-md w-full fixed bg-white h-20 top-0 z-10'>
+    <nav className='py-5 px-[3px] md:px-7 flex items-center justify-between shadow-md w-screen fixed bg-white h-20 top-0 z-10'>
         <Link className='flex items-center gap-[2px]' to={'/'}>
         <img className=' w-6 md:w-9 h-8 md:h-9' src={blogImg} alt="" />
         <h1 className=' text-[19px] md:text-2xl font-bold'>LOG</h1>
