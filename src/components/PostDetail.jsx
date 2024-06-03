@@ -147,7 +147,7 @@ console.log(error);
      disabled={loading}
        onClick={createComment}
        type="submit"
-       className=" bg-black text-white font-bold py-2 px-5 rounded-full"
+       className=" bg-black text-white font-bold py-2 px-5 rounded-md"
      >
        {loading ? 'Submitting..' : 'Submit'}
      </button>
