@@ -57,7 +57,7 @@ const EditPost = () => {
         title:title,
         photo:photo,
         description,
-        username:user.username,
+
         userId:user._id,
         categories:cats
       }

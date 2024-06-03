@@ -59,9 +59,9 @@ const PostDetail = () => {
         `${import.meta.env.VITE_URL}/api/v1/comment/create`,
         {
           comment: comment,
-          author: user.username,
+          author: user._id,
           postId: postId,
-          userId: user._id,
+          
         },
         { withCredentials: true }
 
@@ -81,7 +81,7 @@ const PostDetail = () => {
  {loader?<div className="h-[80vh] flex justify-center items-center w-full"><Loader/></div>: <div className=" pt-28 px-[6px] md:px-32  ">
    <div className=" flex items-center justify-between">
      <h1 className=" mb-7 text-2xl font-bold">{post.title}</h1>
-     {user?._id === post?.userId && (
+     {user?._id === post?.userId?._id && (
        <div className="flex gap-3 mb-6">
          <Link to={"/edit/" + postId}>
            <MdEdit className=" text-3xl cursor-pointer" />
@@ -94,7 +94,7 @@ const PostDetail = () => {
      )}
    </div>
    <div className=" flex mb-5 justify-between items-center">
-     <h3 className="  font-semibold">@{post.username}</h3>
+     <h3 className="  font-semibold">@{post?.userId?.username}</h3>
      <div className="flex gap-4">
      <p>{new Date(post.createdAt).toString().slice(0,15)}</p>
        <p>{new Date(post.createdAt).toString().slice(16,24)}</p>
@@ -118,7 +118,7 @@ const PostDetail = () => {
    </div>
    <h1 className="text-2xl font-semibold mt-12">Comments:</h1>
    {comments?.map((c) => (
-     <Comment c={c} />
+     <Comment fetchCmnt={postComment} c={c} />
    ))}
    <div className="flex items-center gap-2 md:justify-between mt-5 mb-9">
      <input

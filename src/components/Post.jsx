@@ -9,7 +9,7 @@ const Post = ({blogs}) => {
       <div>
         <h1 className='text-2xl mb-2  font-bold'>{blogs.title} </h1>
         <div className='flex items-center  justify-between space-x-8 md:space-x-80'>
-        <h1 className=' font-semibold mb-2'>@{blogs.username}</h1>
+        <h1 className=' font-semibold mb-2'>@{blogs?.userId?.username}</h1>
         <div className='flex mb-2 gap-4'>
         <p>{new Date(blogs.createdAt).toString().slice(0,15)}</p>
        <p className='hidden md:block'>{new Date(blogs.createdAt).toString().slice(16,24)}</p>
