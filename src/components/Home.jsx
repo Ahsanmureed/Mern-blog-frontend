@@ -32,7 +32,7 @@ const Home = () => {
     }
 
   }
-  console.log(blogs);
+ 
   return (
     <div className='  pt-16'>
       {loader?<div className=' h-[70vh] flex justify-center items-center'><Loader/></div>:!noResults?blogs.map((blog)=>(
