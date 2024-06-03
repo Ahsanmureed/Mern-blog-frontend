@@ -7,12 +7,15 @@ const Menu = () => {
   const navigate= useNavigate();
   const {user} =useContext(UserContext)
   const {setUser} =useContext(UserContext)
-
+  function removeCookie(name) {
+    document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
   const handleLogout=async()=>{
     try {
       const res = await axios.post(`${import.meta.env.VITE_URL}/api/v1/auth/logout`,{},{withCredentials:true});
          setUser(null);
          navigate("/login")
+         removeCookie('token');
     }
        catch (error) {
       console.log(error);
