@@ -14,6 +14,7 @@ import { useContext } from 'react'
 import { UserContext } from './context/UserContext'
 import Footer from './components/Footer'
 import PageNotFound from './components/PageNotFound'
+import SearchResult from './components/searchResult'
 
 const App = () => {
   const {user}= useContext(UserContext)
@@ -30,6 +31,7 @@ const App = () => {
       <Route path='/post/:id' element={<PostDetail/>}/>
       <Route path='/create' element={!user?<Login/>:<CreatePost/>}/>
       <Route path='/edit/:id' element={!user?<Login/>:<EditPost/>}/>
+      <Route path='/search' element={<SearchResult/>}/>
       <Route path='/my-blog/:id' element={!user?<Login/>:<UserBlog/>}/>
       <Route path='*' element={<PageNotFound/>}/>
     </Routes>

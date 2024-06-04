@@ -26,7 +26,7 @@ const CreatePost = () => {
 
     const addCategory=()=>{
         let updatedCats=[...cats]
-        updatedCats.push(cat)
+       cat===""?"": updatedCats.push(cat)
         setCat("")
         setCats(updatedCats)
     }

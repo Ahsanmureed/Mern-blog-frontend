@@ -27,7 +27,7 @@ const EditPost = () => {
 
     const addCategory=()=>{
         let updatedCats=[...cats]
-        updatedCats.push(cat)
+        cat===""?"": updatedCats.push(cat)
         setCat("")
         setCats(updatedCats)
     }
@@ -38,7 +38,7 @@ const EditPost = () => {
 
        
         try{
-          const res=await axios.get(`${import.meta.env.VITE_URL}/api/v1/blog/`+postId,{withCredentials:true})
+          const res=await axios.get(`${import.meta.env.VITE_URL}/api/v1/blog/blog/`+postId,{withCredentials:true})
           setTitle(res.data.post.title)
           setPhoto(res.data.post.photo)
           setDescription(res.data.post.description)

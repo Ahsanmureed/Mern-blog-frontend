@@ -29,7 +29,7 @@ const PostDetail = () => {
     setLoader(true)
     try {
       const res = await axios.get(
-        `${import.meta.env.VITE_URL}/api/v1/blog/` + postId,
+        `${import.meta.env.VITE_URL}/api/v1/blog/blog/` + postId,
         { withCredentials: true }
       );
       setLoader(false)

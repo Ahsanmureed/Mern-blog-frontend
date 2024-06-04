@@ -32,11 +32,11 @@ fetchPosts();
     
   return (
     <div>
-        {loader?<div className="h-[80vh] flex justify-center items-center w-full"><Loader/></div>:!noResults?<div className=' mt-24'>
+        {loader?<div className="h-[80vh] flex justify-center items-center w-full"><Loader/></div>:post.length>0?<div className=' mt-24'>
         {post?.map((blog)=>(
             <Link to={`/post/${blog._id}`}><Post key={blog._id} blogs={blog}/></Link>
         ))}
-    </div>:<h1>No Posts Avaliable</h1>}
+    </div>:<h1 className=' mt-28 text-3xl text-center font-medium'>No Posts Avaliable</h1>}
     </div>
   )
 }
