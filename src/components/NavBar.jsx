@@ -17,6 +17,7 @@ const path=useLocation().pathname
     setMenu(!menu)
   }
   const searchInput = useLocation()
+  
   const URLSearch = new URLSearchParams(searchInput?.search)
   const searchQuery = URLSearch.getAll("q")
   const [search,setSearch] = useState(searchQuery)
