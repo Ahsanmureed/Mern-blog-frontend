@@ -8,6 +8,7 @@ import PostDetail from './components/PostDetail'
 import CreatePost from './components/CreatePost'
 import EditPost from './components/EditPost'
 import UserBlog from './components/UserBlog'
+import PrivateRoute from './components/ProtectedRoutes'
 import Profile from './components/Profile'
 import { useContext } from 'react'
 import ScrollToTop from './components/ScrollToTop'
@@ -25,14 +26,14 @@ const App = () => {
 <NavBar/>
     <Routes>
     <Route path='/' element={<Home/>}/>
-      <Route path='/login' element={user?<Profile/>:<Login/>}/>
-      <Route path='/profile/:id' element={!user?<Login/>:<Profile/>}/>
+      <Route path='/login' element={!user?<Login/>:<Profile/>}/>
+      <Route path='/profile/:id' element={<PrivateRoute><Profile/></PrivateRoute>}/>
       <Route path='/register' element={!user?<Register/>:<Profile/>}/>
       <Route path='/post/:id' element={<PostDetail/>}/>
-      <Route path='/create' element={!user?<Login/>:<CreatePost/>}/>
-      <Route path='/edit/:id' element={!user?<Login/>:<EditPost/>}/>
+      <Route path='/create' element={<CreatePost/>}/>
+      <Route path='/edit/:id' element={<EditPost/>}/>
       <Route path='/search' element={<SearchResult/>}/>
-      <Route path='/my-blog/:id' element={!user?<Login/>:<UserBlog/>}/>
+      <Route path='/my-blog/:id' element={<UserBlog/>}/>
       <Route path='*' element={<PageNotFound/>}/>
     </Routes>
     <Footer/>
