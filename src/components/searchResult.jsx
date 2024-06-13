@@ -34,7 +34,7 @@ const SearchResult = () => {
     loader ? <div className=' h-[70vh] flex justify-center items-center'><Loader/></div>: <> <div className='pt-24 '><h1 className=' text-center  text-3xl font-poppins font-bold'>{blogs === " " && blogs <1 ? "No Blogs Found":`Found ${blogs?.length} Blogs`}</h1>
     <div className=' w-full  px-2'>
     {blogs?.map((blog)=>  (
-     <div className=' '><Post blogs={blog}/></div>
+     <Link key={blog._id} to={`/post/${blog._id}`}><Post key={blog._id} blogs={blog}/></Link>
       ))}
     </div>
       
