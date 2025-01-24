@@ -45,7 +45,7 @@ const CreatePost = () => {
    
         
         try{
-          const res=await axios.post(`${import.meta.env.VITE_URL}/api/v1/blog/create`,post,{withCredentials:true})
+          const res=await  axios.post(`${import.meta.env.VITE_URL}/api/v1/blog/create`,post,{withCredentials:true})
           toast('🦄 Blog Created successFully', {
             position: "top-center",
             autoClose: 2000,
